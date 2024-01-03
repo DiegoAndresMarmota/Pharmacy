@@ -6,12 +6,12 @@ spring:
     name: microservices-medicamento
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/medicamentoDb
+    url: jdbc:mysql://localhost:3306/medicamentosDb
     username: root
     password: 150919
   jpa:
     hibernate:
-      ddl-auto:create
+      ddl-auto: create
     database: mysql
     database-platform: org.hibernate.dialect.MySQL8Dialect
   config:
@@ -22,4 +22,4 @@ eureka:
     hostname: localhost
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://localhost:8761/eureka

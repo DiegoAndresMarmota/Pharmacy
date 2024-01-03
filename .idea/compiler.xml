@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="microservices-configserver" />
         <module name="microservices-eureka" />
+        <module name="microservices-laboratorio" />
         <module name="microservices-apigateway" />
         <module name="microservices-medicamento" />
       </profile>
@@ -16,6 +17,8 @@
       <module name="config-server" target="17" />
       <module name="configserver" target="17" />
       <module name="demo" target="17" />
+      <module name="laboratorio" target="1.5" />
+      <module name="microservices-laboratory" target="17" />
       <module name="microservices.medicamento" target="17" />
     </bytecodeTargetLevel>
   </component>
@@ -24,9 +27,11 @@
       <module name="config-server" options="-parameters" />
       <module name="configserver" options="-parameters" />
       <module name="demo" options="-parameters" />
+      <module name="laboratorio" options="" />
       <module name="microservices-apigateway" options="-parameters" />
       <module name="microservices-configserver" options="-parameters" />
       <module name="microservices-eureka" options="-parameters" />
+      <module name="microservices-laboratorio" options="-parameters" />
       <module name="microservices-medicamento" options="-parameters" />
       <module name="microservices.medicamento" options="-parameters" />
     </option>

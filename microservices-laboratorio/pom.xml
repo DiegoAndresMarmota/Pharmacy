@@ -9,11 +9,11 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<groupId>com.microservices.medicamento</groupId>
-	<artifactId>microservices-medicamento</artifactId>
+	<groupId>com.microservices.laboratorio</groupId>
+	<artifactId>microservices-laboratorio</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>microservices-medicament</name>
-	<description>Spring Boot API Medicament</description>
+	<name>microservices-laboratory</name>
+	<description>Spring Boot API Laboratory</description>
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>2023.0.0</spring-cloud.version>
@@ -42,8 +42,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
