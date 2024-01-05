@@ -1,4 +1,4 @@
-package com.microservices.medicamento.services;
+package com.microservices.medicamento.service;
 
 import com.microservices.medicamento.entities.Medicamento;
 
