@@ -1,5 +1,7 @@
 package com.microservices.laboratorio.entities;
 
+import java.util.Optional;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,5 +34,9 @@ public class Laboratorio {
 
     @Column(name = "laboratorio_id")
     private Long laboratorioId;
+
+    public static Optional<Laboratorio> findById(Long laboratorioId2) {
+        return null;
+    }
 }
 
