@@ -37,4 +37,10 @@ public class MedicamentoController {
         return ResponseEntity.ok(medicamentoService.findAll());
     }
 
+    @GetMapping("/searchByLaboratorio/{laboratorioId}")
+//    @RequestParam("idLaboratorio") Long idLaboratorio
+    public ResponseEntity<?> findByIdLaboratorio(@PathVariable Long laboratorioId){
+        return ResponseEntity.ok(medicamentoService.findByIdLaboratorio(laboratorioId));
+    }
+
 }
