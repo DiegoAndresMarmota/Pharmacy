@@ -32,12 +32,15 @@ public class LaboratorioController {
         return ResponseEntity.ok(laboratorioService.findById(Id)) ;
     }
 
-    @GetMapping("/searchAll")
+    @GetMapping("/search-all")
     public ResponseEntity<?> findAllMedicamento(){
         return ResponseEntity.ok(laboratorioService.findAll());
     }
 
-
-
+    @GetMapping("/search-all-medicamento/{laboratorioId}")
+    public ResponseEntity<?> findAllMedicamentoByLaboratorio(Long laboratorioId){
+        return ResponseEntity.ok(laboratorioService.findAllMedicamentoByLaboratorio(laboratorioId));
+    
+    }
 
 }
