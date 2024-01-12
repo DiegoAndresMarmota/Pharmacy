@@ -38,7 +38,6 @@ public class MedicamentoController {
     }
 
     @GetMapping("/searchByLaboratorio/{laboratorioId}")
-//    @RequestParam("idLaboratorio") Long idLaboratorio
     public ResponseEntity<?> findByIdLaboratorio(@PathVariable Long laboratorioId){
         return ResponseEntity.ok(medicamentoService.findByIdLaboratorio(laboratorioId));
     }
