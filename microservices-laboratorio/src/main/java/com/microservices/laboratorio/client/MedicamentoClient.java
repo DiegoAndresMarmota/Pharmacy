@@ -10,7 +10,7 @@ import com.microservices.laboratorio.dto.MedicamentoDTO;
 
 @FeignClient(
     name = "microservices-medicamento", 
-    url = "localhost:8090//api/medicamento"  
+    url = "localhost:8080//api/medicamento"  
 )
 public interface MedicamentoClient {
 
