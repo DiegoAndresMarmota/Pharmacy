@@ -52,6 +52,19 @@ INSERT INTO medicamentos (
         'Comprimido',
         '109'
     );
-    
+-- INSERT INTO laboratorios (
+--     nombre_laboratorio,
+--     rut_laboratorio,
+--     registroISP,
+--     direccion_laboratorio,
+--     laboratorio_id
+--     )
+--     VALUES (
+--         '',
+--         '',
+--         ''
+--         '',
+--         ''
+--     );
     
 

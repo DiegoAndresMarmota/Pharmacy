@@ -40,5 +40,19 @@ INSERT INTO laboratorios (
         'Av. Apoquindo 4700, piso 17, Las Condes, Región Metropolitana, Santiago',
         '109'
     );
+-- INSERT INTO laboratorios (
+--     nombre_laboratorio,
+--     rut_laboratorio,
+--     registroISP,
+--     direccion_laboratorio,
+--     laboratorio_id
+--     )
+--     VALUES (
+--         '',
+--         '',
+--         ''
+--         '',
+--         ''
+--     );
  
  
