@@ -1,26 +1,5 @@
-server:
-  port: 8080
-
 spring:
   config:
     import: optional:configserver:http://localhost:8888
   application:
     name: microservices-gateway
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-        - id: medicamento
-          uri: http://localhost:8090
-          predicates:
-           - Path=/api/medicamento/**
-        - id: laboratorio
-          uri: http://localhost:9090
-          predicates:
-           - Path=/api/laboratorio/**
-
-
-
-
