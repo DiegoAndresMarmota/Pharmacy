@@ -1,10 +1,5 @@
 package com.microservices.medicamento.controller;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,9 +20,6 @@ public class MedicamentoController {
     
     @Autowired
     private IMedicamentoService medicamentoService;
-
-    @Autowired
-    private SessionRegistry sessionRegistry;
     
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/create")
@@ -50,31 +42,4 @@ public class MedicamentoController {
         return ResponseEntity.ok(medicamentoService.findByIdLaboratorio(laboratorioId));
     }
 
-    @GetMapping("/session")
-    @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<?> getDetailsSession(){
-
-        String sessionId = "";
-        User userObject = null;
-
-        List<Object> sessions = sessionRegistry.getAllSessions();
-
-        for(Object session : sessions){
-            if (session instanceof User) {
-                userObject = (User) session;
-            }
-            
-            List<SessionInformation> sessionInformations = sessionRegistry.getAllSessions(session, false);
-        
-            for(SessionInformation sessionInformation: sessionInformations){
-                sessionId = sessionInformation.getSessionId();
-            }
-        }
-
-        Map<String, Object> response = new HashMap<>();
-        response.put("sessionId", sessionId);
-        response.put("sessionUser", userObject);
-
-        return ResponseEntity.ok(response);
-    }
 }
