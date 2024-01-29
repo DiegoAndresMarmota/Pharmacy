@@ -1,5 +1,9 @@
 package com.microservices.laboratorio.controller;
 
+import java.util.List;
+import java.util.Map;
+
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +17,7 @@ import com.microservices.laboratorio.entities.Laboratorio;
 import com.microservices.laboratorio.service.ILaboratorioService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import java.util.HashMap;
 
 @RestController
 @RequestMapping("/api/laboratorio")
@@ -20,6 +25,9 @@ public class LaboratorioController {
 
     @Autowired
     private ILaboratorioService laboratorioService;
+
+    @Autowired
+    private SessionRegistry sessionRegistry;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -40,7 +48,34 @@ public class LaboratorioController {
     @GetMapping("/search-all-medicamento/{laboratorioId}")
     public ResponseEntity<?> findAllMedicamentoByLaboratorio(Long laboratorioId){
         return ResponseEntity.ok(laboratorioService.findAllMedicamentoByLaboratorio(laboratorioId));
-    
     }
 
+    @GetMapping("/session")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<?> getDetailsSession(){
+
+        String sessionId = "";
+        User userObject = null;
+
+        List<Object> sessions = sessionRegistry.getAllSessions();
+
+        for(Object session : sessions){
+            if (session instanceof User) {
+                userObject = (User) session;
+            }
+            
+            List<SessionInformation> sessionInformations = sessionRegistry.getAllSessions(session, false);
+        
+            for(SessionInformation sessionInformation: sessionInformations){
+                sessionId = sessionInformation.getSessionId();
+            }
+        }
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("sessionId", sessionId);
+        response.put("sessionUser", userObject);
+
+        return ResponseEntity.ok(response);
+    }
 }
+
