@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.session.SessionRegistry;
+import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
@@ -31,12 +33,17 @@ public class SecurityConfig {
                 .maximumSessions(1)
                 .maxSessionsPreventsLogin(true)
                 .expiredUrl("/login")
-                .sessionRegistry(null)
+                .sessionRegistry(sessionRegistry())
             )
             .logout(logout -> logout
                 .deleteCookies("JSESSIONID")
             )
+            .httpBasic(null)
             .build();
+    }
+
+    public SessionRegistry sessionRegistry(){
+        return new SessionRegistryImpl();
     }
 
     public AuthenticationSuccessHandler successHandlerOK(){
@@ -45,6 +52,8 @@ public class SecurityConfig {
             response.getWriter().write("Login Successful");
             response.getWriter().flush();
             response.getWriter().close();
+            response.sendRedirect("/session-laboratorio");
+            response.sendRedirect("/session-medicamento");
         });
     }
 }
