@@ -24,6 +24,7 @@
 		<module>microservices-configserver</module>
 		<module>microservices-medicamento</module>
 		<module>microservices-laboratorio</module>
+		<module>microservices-admin</module>
 	</modules>
 	
 	<properties>

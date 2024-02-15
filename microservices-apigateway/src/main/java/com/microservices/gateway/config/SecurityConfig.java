@@ -38,7 +38,6 @@ public class SecurityConfig {
             .logout(logout -> logout
                 .deleteCookies("JSESSIONID")
             )
-            .httpBasic(null)
             .build();
     }
 
