@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="microservices-configserver" />
+        <module name="microservices-admin" />
         <module name="microservices-eureka" />
         <module name="microservices-laboratorio" />
         <module name="microservices-apigateway" />
@@ -28,6 +29,7 @@
       <module name="configserver" options="-parameters" />
       <module name="demo" options="-parameters" />
       <module name="laboratorio" options="" />
+      <module name="microservices-admin" options="-parameters" />
       <module name="microservices-apigateway" options="-parameters" />
       <module name="microservices-configserver" options="-parameters" />
       <module name="microservices-eureka" options="-parameters" />
