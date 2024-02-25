@@ -1,5 +1,7 @@
 package com.microservices.admin.models;
 
+import java.util.Set;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -32,4 +34,16 @@ public class AdminEntity {
     @NotBlank
     @Size(max = 20, min = 7)
     private String adminname;
+
+    @ManyToMany(
+        fetch = FetchType.EAGER, 
+        targetEntity = RoleEntity.class, 
+        cascade = CascadeType.PERSIST
+    )
+    @JoinTable(
+        name = "admin_roles",
+        joinColumns = @JoinColumn(name = "admin_id"),
+        inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<RoleEntity> roles;
 }
